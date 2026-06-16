@@ -116,30 +116,3 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
-
-
-/*TAMAÑO DEL GAME CANVAS*/  
-/* Contenedor */
-
-.game-wrapper {
-  width: 100vw;
-  height: 100vh;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Canvas */
-
-.game-canvas {
-
-  width: min(100vw, calc(100vh * 1.3333));
-  height: auto;
-
-  max-height: 100vh;
-
-  border: 2px solid white;
-
-  image-rendering: pixelated;
-}

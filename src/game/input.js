@@ -3,7 +3,8 @@
 export const keys = {
   left: false,
   right: false,
-  launch:false
+  launch:false,
+  pause: false
 };
 
 export function setupInput() {
@@ -23,6 +24,11 @@ export function setupInput() {
     if (e.code === "Space") {
       keys.launch = true;
     }
+
+    //Tecla P para pausar
+    if (e.key.toLowerCase() === "p"){
+      keys.pause = true
+    }
   }
 
   function keyUp(e) {
@@ -39,6 +45,11 @@ export function setupInput() {
     //Barra espaciadora
     if (e.code === "Space") {
       keys.launch = false;
+    }
+
+    //Tecla P para pausar
+    if (e.key.toLowerCase() === "p"){
+      keys.pause = false
     }
   }
 

@@ -9,6 +9,30 @@ export function createGame(canvas, { onExit, setHudData, onVictory, onGameOver }
   const ctx = canvas.getContext("2d");
   let rafId = 0;
   let running = false;
+  let paused = false;
+
+// Función para alternar el estado de pausa
+
+  function togglePause() {
+
+    paused = !paused;
+
+    setHudData(prev => ({
+      ...prev,
+      paused
+    }));
+  }
+
+  function handlePause() {
+  togglePause();
+}
+
+window.addEventListener(
+  "togglePause",
+  handlePause
+);
+
+//Renderizado del HUD
 
   function updateHUD() {
     console.log("HUD actualizado");
@@ -24,6 +48,18 @@ export function createGame(canvas, { onExit, setHudData, onVictory, onGameOver }
   const state = structuredClone(stage1);
 
 function update() {
+
+  //Detectar la pausa y detener la lógica del juego
+  if (keys.pause) {
+
+  togglePause();
+
+  keys.pause = false;
+}
+
+    if (paused) {
+    return;
+  }
 
   const paddle = state.paddle;
   const ball = state.ball;
@@ -255,6 +291,10 @@ function draw() {
     running = false;
     cleanupInput();
     cancelAnimationFrame(rafId);
+    window.removeEventListener(
+      "togglePause",
+      handlePause
+    );
   }
 
   return { start, destroy };

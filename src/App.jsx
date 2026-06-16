@@ -3,6 +3,8 @@ import HomeScreen from "./components/title";
 import GameCanvas from "./components/game-canvas";
 import HUD from "./components/hud";
 import LaunchOverlay from "./components/launch-overlay"
+import PauseButton from "./components/pause-button";
+import TouchControls from "./components/touch-controls";
 import './App.css';
 
 import VictoryScreen from "./components/victory";
@@ -16,7 +18,8 @@ export default function App() {
     score: 0,
     lives: 3,
     level: 1,
-    ballAttached: true
+    ballAttached: true,
+    paused:false
   });
 
   const handleExit = () => {
@@ -32,6 +35,18 @@ export default function App() {
       )}
 
 {screen === "playing" && (
+  
+<>
+    <PauseButton
+    paused={hudData.paused}
+    onToggle={() => {
+      window.dispatchEvent(
+        new CustomEvent("togglePause")
+      );
+    }}
+  />
+
+
   <div className="game-layout">
 
     <HUD
@@ -46,6 +61,8 @@ export default function App() {
         <LaunchOverlay />
       )}
 
+
+
       <GameCanvas
         onExit={handleExit}
         setHudData={setHudData}
@@ -55,7 +72,11 @@ export default function App() {
 
     </div>
 
+    <TouchControls />
+    
   </div>
+
+</>
 )}
 
       {screen === "victory" && (

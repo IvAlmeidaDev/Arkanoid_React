@@ -1,6 +1,7 @@
 // GameCanvas.jsx
 import { useEffect, useRef } from "react";
 import { createGame } from "../game/initgame";
+import {keys} from "../game/input"
 
 export default function GameCanvas({ onExit, setHudData, onVictory, onGameOver }) {
   const canvasRef = useRef(null);
@@ -20,6 +21,14 @@ export default function GameCanvas({ onExit, setHudData, onVictory, onGameOver }
       width={800}
       height={600}
       className="game-canvas"
+
+      onTouchStart={() => {
+    keys.launch = true;
+  }}
+
+  onTouchEnd={() => {
+    keys.launch = false;
+  }}
     />
   </div>
 );
