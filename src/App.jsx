@@ -6,6 +6,7 @@ import LaunchOverlay from "./components/launch-overlay"
 import PauseButton from "./components/pause-button";
 import TouchControls from "./components/touch-controls";
 import './App.css';
+import './components/title.css';
 
 import VictoryScreen from "./components/victory";
 import GameOverScreen from "./components/game_over";
