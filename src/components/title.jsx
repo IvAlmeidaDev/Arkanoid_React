@@ -1,3 +1,5 @@
+import logo from "../assets/Arkanoid-logo.svg";
+
 export default function HomeScreen({ onStart }) {
   return (
     <main className="title-screen">
@@ -5,7 +7,7 @@ export default function HomeScreen({ onStart }) {
       <div className="title-content">
 
         <img
-          src="../assets/Arkanoid-logo.svg"
+          src={logo}
           alt="Arkanoid"
           className="title-logo"
         />
