@@ -169,6 +169,15 @@
   border-bottom: 4px solid #111111;
 
     touch-action: manipulation;
+
+    /*Avoid the touchscreen buttons being selected*/
+
+      user-select: none;
+  -webkit-user-select: none;
+
+  -webkit-touch-callout: none;
+
+    -webkit-tap-highlight-color: transparent;
   }
 
   .touch-btn:active {
