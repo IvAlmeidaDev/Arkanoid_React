@@ -8,11 +8,6 @@
   width: 48px;
   height: 48px;
 
-  border: 2px solid white;
-
-  background: black;
-  color: white;
-
   cursor: pointer;
 
   z-index: 1000;
@@ -56,11 +51,19 @@
   align-items: center;
 
   gap: 2rem;
+
+          background: linear-gradient(
+    to bottom,
+    #050520,
+    #101040,
+    #1c1c60
+  );
 }
 
 @media (max-width: 768px) {
 
   .game-layout {
+
     flex-direction: column;
 
     justify-content: center;
@@ -109,6 +112,25 @@
   touch-action: none;
 }
 
+/*FONDO*/
+.game-layout::before {
+
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    radial-gradient(white 1px, transparent 1px);
+
+  background-size: 32px 32px;
+
+  opacity: 0.15;
+
+  pointer-events: none;
+}
+
+
 /* Controles táctiles */
 .touch-controls {
   display: none;
@@ -134,12 +156,28 @@
 
     font-size: 2rem;
 
-    border: 2px solid white;
+  background: linear-gradient(
+    to bottom,
+    #4a4a4a,
+    #1f1f1f
+  );
 
-    background: black;
-    color: white;
+  border-top: 4px solid #808080;
+  border-left: 4px solid #808080;
+
+  border-right: 4px solid #111111;
+  border-bottom: 4px solid #111111;
 
     touch-action: manipulation;
   }
 
+  .touch-btn:active {
+      transform: translateY(2px);
+
+  border-top-color: #111111;
+  border-left-color: #111111;
+
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+  }
 }

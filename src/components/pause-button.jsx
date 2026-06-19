@@ -1,3 +1,5 @@
+import './pause-button.css';
+
 export default function PauseButton({
   paused,
   onToggle

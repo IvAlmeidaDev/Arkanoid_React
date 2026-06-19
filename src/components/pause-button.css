@@ -1,0 +1,34 @@
+.pause-button {
+          background: linear-gradient(
+    to bottom,
+    #4a4a4a,
+    #1f1f1f
+  );
+
+  border-top: 4px solid #808080;
+  border-left: 4px solid #808080;
+
+  border-right: 4px solid #111111;
+  border-bottom: 4px solid #111111;
+
+
+  cursor: pointer;
+}
+
+.pause-button:hover {
+
+  filter: brightness(1.2);
+
+  transform: scale(1.03);
+}
+
+.pause-button:active {
+
+  transform: translateY(2px);
+
+  border-top-color: #111111;
+  border-left-color: #111111;
+
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+}
