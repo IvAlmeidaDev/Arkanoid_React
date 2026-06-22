@@ -37,7 +37,7 @@ function generateBricks() {
   const padding = 10;
 
   const offsetTop = 60;
-  const offsetLeft = 35;
+  const offsetLeft = 5;
 
   for (let row = 0; row < rows; row++) {
 
