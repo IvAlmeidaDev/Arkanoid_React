@@ -5,8 +5,8 @@
   top: 20px;
   right: 20px;
 
-  width: 48px;
-  height: 48px;
+  width: 65px;
+  height: 65px;
 
   cursor: pointer;
 
@@ -83,6 +83,13 @@
     align-items: center;
 
     padding-right: 65px;
+  }
+
+  .pause-button {
+    right: 10px;
+
+    width: 48px;
+    height: 48px;
   }
 
 }
