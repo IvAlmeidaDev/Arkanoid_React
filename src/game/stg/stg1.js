@@ -1,5 +1,13 @@
 export const stage1 = {
 
+  powerUp: null,
+
+  capsules: [],
+
+  lasers: [],
+
+
+  
   paddle: {
     x: 350,
     y: 560,
@@ -8,15 +16,19 @@ export const stage1 = {
     speed: 7
   },
 
-  ball: {
-    x: 400,
-    y: 300,
-    radius: 10,
-    dx: 4,
-    dy: -4,
-    
-    attached: true
-  },
+  balls: [
+    {
+      x: 400,
+      y: 300,
+      radius: 10,
+      dx: 4,
+      dy: -4,
+      
+      attached: true,
+
+      bomb: false
+  }
+],
 
   bricks: generateBricks(),
 
