@@ -95,19 +95,6 @@ function update() {
     ball.y = paddle.y - ball.radius - 2;
   }
 
-  // Lanzamiento
-  if (
-    ball.attached &&
-    (keys.space || keys.launch)
-  ) {
-
-    ball.attached = false;
-
-    keys.launch = false;
-
-    updateHUD();
-  }
-
   // Movimiento
   if (!ball.attached) {
 
@@ -193,22 +180,44 @@ for (const ball of state.balls) {
 
 }
 
-//Activación del powerup de bomba si la pelota tiene la propiedad bomb activada
+//Debug stuff
 console.log(
   keys.launch,
   state.powerUp,
   state.balls[0].bomb
 );
 
-if (keys.launch && state.powerUp === POWERUPS.BOMB) {
+//COMPORTAMIENTO DE LA PELOTA AL PULSAR ESPACIO 
 
-  console.log("BOOM");
+if (  //Explotar la pelota si se tiene el powerup de bomba y se pulsa espacio
+  state.powerUp === POWERUPS.BOMB &&
+  keys.launch
+) {
 
   explodeBomb(state);
 
   clearCurrentPower(state);
 
   keys.launch = false;
+}
+else {
+  //Lanzar la pelota si está pegada al paddle y se pulsa espacio
+  //Esto evita que la bomba y el lanzamiento de la pelota se activen al mismo tiempo
+  for (const ball of state.balls) {
+
+    if (
+      ball.attached &&
+      keys.launch
+    ) {
+
+      ball.attached = false;
+
+      keys.launch = false;
+
+      updateHUD();
+    }
+  }
+
 }
 
 
